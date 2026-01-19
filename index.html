@@ -199,13 +199,26 @@
       </div>
     </div>
 
+    <audio id="birthdayMusic">
+      <source src="./assets/birthday-song.m4a" type="audio/mpeg" />
+    </audio>
+
     <script>
       function openCard() {
         const card = document.getElementById("card");
+        const music = document.getElementById("birthdayMusic");
 
         if (!card.classList.contains("open")) {
           card.classList.add("open");
 
+          // PLAY MUSIC
+          // We wrap it in a catch block because some browsers might still block it
+          // if the user hasn't interacted enough.
+          music.play().catch((error) => {
+            console.log("Autoplay was prevented. Click again to play music!");
+          });
+
+          // CONFETTI LOGIC
           var duration = 3 * 1000;
           var end = Date.now() + duration;
 
@@ -231,6 +244,9 @@
           })();
         } else {
           card.classList.remove("open");
+          // Optional: Pause music when closing
+          music.pause();
+          music.currentTime = 0; // Reset to beginning
         }
       }
     </script>

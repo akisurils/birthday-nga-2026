@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hiếu gửi Nga yeu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+      :root {
+        --primary: #ff6b6b;
+        --card-bg: #ffffff;
+        --inside-bg: #fff5f5;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: radial-gradient(circle, #fceabb 0%, #f8b500 100%);
+        font-family: "Inter", sans-serif;
+        perspective: 1500px;
+      }
+
+      .birthday-card {
+        position: relative;
+        width: 850px;
+        height: 650px;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transition: transform 0.6s ease;
+      }
+
+      .cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        z-index: 2;
+        transform-origin: left;
+        transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        backface-visibility: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .cover h2 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      .cover .instruction {
+        margin-top: 20px;
+        font-size: 4rem;
+        opacity: 0.8;
+      }
+
+      /* --- Inside of the Card --- */
+      .inside {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--inside-bg);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Keeps text centered vertically */
+        align-items: center; /* Keeps text centered horizontally */
+        padding: 40px;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 1;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Sticker Styling */
+      .sticker {
+        position: absolute;
+        width: 120px; /* Adjust size as needed */
+        height: auto;
+        z-index: 5;
+      }
+
+      .sticker-top-left {
+        top: 20px;
+        left: 20px;
+      }
+
+      .sticker-top-right {
+        top: 20px;
+        right: 20px;
+      }
+
+      .inside h1 {
+        font-family: "Dancing Script", cursive;
+        color: var(--primary);
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .inside p {
+        color: #4b5563;
+        line-height: 1.6;
+        font-size: 1.2rem;
+        max-width: 80%; /* Prevents text from hitting stickers */
+      }
+
+      .plspls {
+        max-width: 20%;
+        margin-bottom: 20px;
+        border-radius: 10px;
+      }
+
+      .nhangnhang {
+        max-width: 5%;
+        display: inline;
+        height: auto;
+      }
+
+      .birthday-card.open .cover {
+        transform: rotateY(-140deg);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="birthday-card" id="card" onclick="openCard()">
+      <div class="cover">
+        <img src="./assets/pls pls pls.jpg" alt="" class="plspls" />
+        <h2>Mở ra đi, mở ra đi mà</h2>
+        <div class="instruction">👉👈</div>
+      </div>
+
+      <div class="inside">
+        <img
+          src="./assets/nezu_chan__01.gif"
+          alt="sticker1"
+          class="sticker sticker-top-left"
+        />
+        <img
+          src="./assets/nhom nhom nhom.gif"
+          alt="sticker2"
+          class="sticker sticker-top-right"
+        />
+
+        <h1>Happy Birthday Nga!</h1>
+        <p style="font-size: 0.95rem">
+          Dành tặng Vũ Linh Nga,<br /><br />
+          "Woa, đã đến ngày sinh nhật tuổi thứ 22 của cậu rồi Nga nhỉ? Thời gian
+          trôi đi cũng nhanh quá đi! Cô bé nhăng nhăng nhăng ngày nào giờ đã bắt
+          đầu bước chân vào con đường tới ước mơ của mình rồi
+          <img
+            src="./assets/cobenhangnhangnhang.jpg"
+            alt="nhăng nhăng nhăng"
+            class="nhangnhang"
+          />
+          .
+          <br />Tớ còn nhớ ngày nào Nga còn là chúa tể bất tử của Lehigh, giờ
+          cậu sắp bước chân ra khỏi trường để thành chúa tể Amazon rồi. Ui thật
+          tuyệt khi mà cậu đã có được cái offer mà cậu hằng mong chờ trong ngày
+          đặc biệt đó.
+          <br />
+          Tớ biết là cậu đã trải qua nhiều thăng trầm trong cuộc sống, lúc làm
+          công nương nhưng có lúc là người bình thường. Tớ mong Nga sau này, dù
+          có là chúa tể hay chỉ là một cô gái, mãi vẫn luôn xinh đẹp, vẫn luôn
+          có nhiệt huyết, niềm đam mê cháy bỏng rực lửa mà cậu hằng có nhé!
+          <br />
+          Hiếu chúc Nga sẽ có thật nhiều kỉ niệm đẹp để đăng Instagram, chúc Nga
+          sẽ đạt được mục tiêu làm triệu phú, và chúc Nga sẽ luôn vui tươi khoẻ
+          khoắn để rồi còn nhăng nhăng nhăng nữa nha.
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 30px; opacity: 0.6">
+          - Love, Hiếu
+        </p>
+        <img src="./assets/nom nom nom.jpg" alt="" style="max-width: 5%" />
+      </div>
+    </div>
+
+    <script>
+      function openCard() {
+        const card = document.getElementById("card");
+
+        if (!card.classList.contains("open")) {
+          card.classList.add("open");
+
+          var duration = 3 * 1000;
+          var end = Date.now() + duration;
+
+          (function frame() {
+            confetti({
+              particleCount: 3,
+              angle: 60,
+              spread: 55,
+              origin: { x: 0 },
+              colors: ["#ff6b6b", "#ffd93d"],
+            });
+            confetti({
+              particleCount: 3,
+              angle: 120,
+              spread: 55,
+              origin: { x: 1 },
+              colors: ["#ff6b6b", "#ffd93d"],
+            });
+
+            if (Date.now() < end) {
+              requestAnimationFrame(frame);
+            }
+          })();
+        } else {
+          card.classList.remove("open");
+        }
+      }
+    </script>
+  </body>
+</html>
